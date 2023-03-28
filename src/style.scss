@@ -12,6 +12,8 @@ $black: rgb(46, 46, 46);
   padding: 0;
   box-sizing: border-box;
 
+  color: black;
+
   .App {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
@@ -19,17 +21,20 @@ $black: rgb(46, 46, 46);
     display: flex;
     flex-direction: column;
 
-    height: 100vh;
+    min-height: 100vh;
     background-color: $light-blue;
 
     .container {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       flex-grow: 1;
 
       height: 100%;
+
+      .content{
+        min-height: 100%;
+        background-color: black;
+      }
 
       .auth {
         display: flex;
@@ -39,6 +44,8 @@ $black: rgb(46, 46, 46);
 
         width: 100%;
         height: 100%;
+
+        margin: auto;
 
         h1{
           font-size: 3em;

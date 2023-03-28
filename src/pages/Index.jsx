@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import "../style.scss" ;
+import "../style.scss";
 
 function Index() {
   return (
-    <div className='container'>index</div>
-  )
+    <div className="container">
+      <div className="content">index</div>
+    </div>
+  );
 }
 
-export default Index
+export default Index;

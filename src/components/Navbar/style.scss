@@ -10,7 +10,25 @@ $black: rgb(46, 46, 46);
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 
     width: 100%;
     background-color: $blue;
+
+    .links{
+      display: flex;
+      gap: 20px;
+
+      font-weight: bold;
+      
+      a{
+        text-decoration: none;
+        transition: 0.2s;
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
   }
