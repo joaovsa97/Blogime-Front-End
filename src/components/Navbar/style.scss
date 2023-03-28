@@ -1,0 +1,16 @@
+$red: rgb(219, 118, 118);
+$yellow: rgb(236, 227, 102);
+$green: rgb(111, 248, 98);
+$dark-green: rgb(75, 179, 66);
+$light-blue: rgb(209, 234, 250);
+$blue: rgb(105, 136, 238);
+$white: rgb(255, 255, 255);
+$black: rgb(46, 46, 46);
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    background-color: $blue;
+  }

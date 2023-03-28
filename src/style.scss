@@ -1,0 +1,109 @@
+$red: rgb(219, 118, 118);
+$yellow: rgb(236, 227, 102);
+$green: rgb(111, 248, 98);
+$dark-green: rgb(75, 179, 66);
+$light-blue: rgb(209, 234, 250);
+$blue: rgb(105, 136, 238);
+$white: rgb(255, 255, 255);
+$black: rgb(46, 46, 46);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  .App {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    background-color: $light-blue;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+
+      height: 100%;
+
+      .auth {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 100%;
+
+        h1{
+          font-size: 3em;
+          letter-spacing: 4px;
+        }
+
+        .form {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-radius: 8px;
+
+          height: 60vh;
+          width: 30vw;
+          padding: 2em;
+          margin: 30px;
+
+          background-color: $white;
+          box-shadow: 3px 3px 16px 0px rgba(0, 0, 0, 0.65);
+
+          label {
+            font-weight: bold;
+            align-self: flex-start;
+          }
+
+          span {
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: auto;
+            transition: 0.2s;
+
+            &:hover {
+              color: $blue;
+            }
+          }
+
+          input {
+            padding: 8px;
+            margin-bottom: 12px;
+            width: 100%;
+
+            outline: none;
+            border: none;
+            border-bottom: 1px solid $blue;
+          }
+
+          button {
+            border: none;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 1.2em;
+            background-color: $green;
+
+            width: 100%;
+
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+              background-color: $dark-green;
+            }
+          }
+        }
+      }
+    }
+  }
+}
