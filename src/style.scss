@@ -1,4 +1,5 @@
 $red: rgb(219, 118, 118);
+$dark-red: rgb(192, 104, 104);
 $yellow: rgb(236, 227, 102);
 $green: rgb(111, 248, 98);
 $dark-green: rgb(75, 179, 66);
@@ -6,13 +7,12 @@ $light-blue: rgb(209, 234, 250);
 $blue: rgb(105, 136, 238);
 $white: rgb(255, 255, 255);
 $black: rgb(46, 46, 46);
+$gray: rgb(107, 107, 107);
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  color: black;
 
   .App {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -22,18 +22,30 @@ $black: rgb(46, 46, 46);
     flex-direction: column;
 
     min-height: 100vh;
-    background-color: $light-blue;
+    background-color: $gray;
+    color: $white;
+
+    a {
+      text-decoration: none;
+      transition: 0.2s;
+      color: $white;
+
+      &:hover {
+        color: $red;
+      }
+    }
 
     .container {
       display: flex;
       flex-direction: column;
+      align-items: center;
       flex-grow: 1;
 
       height: 100%;
+      padding: 20px;
 
-      .content{
+      .content {
         min-height: 100%;
-        background-color: black;
       }
 
       .auth {
@@ -47,9 +59,11 @@ $black: rgb(46, 46, 46);
 
         margin: auto;
 
-        h1{
+        h1 {
           font-size: 3em;
           letter-spacing: 4px;
+
+          color: $white;
         }
 
         .form {
@@ -73,13 +87,15 @@ $black: rgb(46, 46, 46);
           }
 
           span {
+            color: $red;
             cursor: pointer;
             font-weight: bold;
+            font-size: 20px;
             margin-top: auto;
             transition: 0.2s;
 
             &:hover {
-              color: $blue;
+              color: $dark-red;
             }
           }
 
@@ -90,7 +106,7 @@ $black: rgb(46, 46, 46);
 
             outline: none;
             border: none;
-            border-bottom: 1px solid $blue;
+            border-bottom: 1px solid $red;
           }
 
           button {
@@ -98,7 +114,7 @@ $black: rgb(46, 46, 46);
             border-radius: 4px;
             padding: 8px;
             font-size: 1.2em;
-            background-color: $green;
+            background-color: $red;
 
             width: 100%;
 
@@ -106,7 +122,223 @@ $black: rgb(46, 46, 46);
             transition: 0.3s;
 
             &:hover {
-              background-color: $dark-green;
+              background-color: $dark-red;
+            }
+          }
+        }
+      }
+
+      .posts {
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        margin: 80px 0;
+
+        .post {
+          height: 200px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          gap: 30px;
+
+          border-radius: 12px;
+
+          &:nth-child(2n + 1) {
+            flex-direction: row-reverse;
+          }
+
+          .img {
+            flex: 2;
+            height: 100%;
+
+            img {
+              width: 100%;
+              max-height: 200px;
+              object-fit: cover;
+              border-radius: 0 10px 10px 0;
+            }
+          }
+          .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 3;
+
+            p {
+              overflow-y: hidden;
+              max-width: 600px;
+              max-height: 100px;
+            }
+          }
+
+          button {
+            border: none;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 1.2em;
+            background-color: $red;
+
+            width: 100%;
+
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+              background-color: $dark-red;
+            }
+          }
+        }
+      }
+
+      .single {
+        display: flex;
+        gap: 50px;
+        width: 100%;
+
+        .content {
+          flex: 5;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+          }
+
+          .user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+            }
+          }
+
+          .edit {
+            display: flex;
+            gap: 10px;
+
+            img {
+              height: 20px;
+              width: 20px;
+              border-radius: 50%;
+              cursor: pointer;
+            }
+          }
+
+          h1 {
+            font-size: 42px;
+            padding: 20px;
+          }
+
+          p {
+            text-align: justify;
+            font-size: 16px;
+            line-height: 30px;
+          }
+        }
+      }
+
+      .add {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        flex-grow: 1;
+
+        .textContent {
+          flex: 5;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          input {
+            padding: 8px;
+
+            border-radius: 10px;
+            border: none;
+          }
+
+          .ql-toolbar.ql-snow {
+            background-color: $white;
+            border-radius: 10px 10px 0 0;
+          }
+          .ql-container.ql-snow {
+            border: none;
+
+            .ql-editor {
+              min-height: 55vh;
+              background-color: $white;
+              color: black;
+              border: none;
+              border-radius: 0 0 10px 10px;
+            }
+          }
+        }
+
+        .menu {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          color: $black;
+          padding: 10px;
+          border-radius: 10px;
+
+          background-color: $white;
+          height: 450px;
+
+          .item.l1{
+            h2 {
+              margin-bottom: 20px;
+            }
+
+            label {
+              cursor: pointer;
+              background-color: $red;
+              color: $white;
+              border-radius: 5px;
+              padding: 3px;
+              transition: 0.3s;
+
+                &:hover{
+                  background-color: $dark-red;
+                }
+            }
+
+            .buttons {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              padding: 20px;
+
+              button {
+                cursor: pointer;
+                background-color: $red;
+                color: $white;
+                border-radius: 5px;
+                padding: 3px;
+                border: none;
+                transition: 0.3s;
+
+                &:hover{
+                  background-color: $dark-red;
+                }
+              }
+            }
+          }
+          .item.l2{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+              margin-bottom: 20px;
             }
           }
         }

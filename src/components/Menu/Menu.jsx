@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import React from "react";
 
-import "../style.scss";
+import "./style.scss";
 
-function Index() {
+const Menu = () => {
   const posts = [
     {
       id: 1,
@@ -20,24 +20,16 @@ function Index() {
 
   return (
     <div className="container">
-      <div className="posts">
-        {posts.map((post) => (
-          <div className="post" key={post.id}>
-            <div className="img">
-              <img src={post.img} alt="" />
-            </div>
-            <div className="content">
-              <Link className="links" to={`/post/${post.id}`}>
-                <h1>{post.title}</h1>
-              </Link>
-              <p>{post.desc}</p>
-              <button>Read More</button>
-            </div>
-          </div>
-        ))}
-      </div>
+      <h2>See also</h2>
+      {posts.map(post => (
+        <div className="post" key={post.id}>
+            <img src={post.img} alt="" />
+            <h3>{post.title}</h3>
+            <button>Read More</button>
+        </div>
+      ))}
     </div>
   );
-}
+};
 
-export default Index;
+export default Menu;

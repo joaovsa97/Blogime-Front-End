@@ -1,4 +1,5 @@
-$red: rgb(219, 118, 118);
+$red: rgb(218, 100, 100);
+$dark-red: rgb(192, 104, 104);
 $yellow: rgb(236, 227, 102);
 $green: rgb(111, 248, 98);
 $dark-green: rgb(75, 179, 66);
@@ -6,10 +7,19 @@ $light-blue: rgb(209, 234, 250);
 $blue: rgb(105, 136, 238);
 $white: rgb(255, 255, 255);
 $black: rgb(46, 46, 46);
+$gray: rgb(83, 82, 82);
+
 
 .footer {
     display: flex;
+    justify-content: space-evenly;
 
     width: 100%;
-    background-color: $red;
+    padding: 8px;
+    background-color: $black;
+    
+    a{
+        color: $red;
+        text-decoration: none;
+    }
 }

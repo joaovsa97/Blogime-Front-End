@@ -20,7 +20,7 @@ const Login = (props) => {
           placeholder="password"
         />
         <button>Login</button>
-        <span onClick={() => changeLogin()}>register</span>
+        <span onClick={() => changeLogin()}>Register</span>
       </div>
     </div>
   );
