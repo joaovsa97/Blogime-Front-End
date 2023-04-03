@@ -18,7 +18,12 @@ const Write = () => {
         <div className="menu">
           <div className="item l1">
             <h2>Publish</h2>
-            <input style={{display: "none"}} type="file" name="file" id="file" />
+            <input
+              style={{ display: "none" }}
+              type="file"
+              name="file"
+              id="file"
+            />
             <label htmlFor="file">Upload Image</label>
             <div className="buttons">
               <button>Save as a draft</button>
@@ -27,12 +32,18 @@ const Write = () => {
           </div>
           <div className="item l2">
             <h2>Category</h2>
-            <input type="radio" name="category" value="anime" id="anime" />
-            <label htmlFor="anime">Anime</label>
-            <input type="radio" name="category" value="manga" id="manga" />
-            <label htmlFor="manga">Manga</label>
-            <input type="radio" name="category" value="music" id="music" />
-            <label htmlFor="music">Music</label>
+            <div className="cat">
+              <input type="radio" name="category" value="anime" id="anime" />
+              <label htmlFor="anime">Anime</label>
+            </div>
+            <div className="cat">
+              <input type="radio" name="category" value="manga" id="manga" />
+              <label htmlFor="manga">Manga</label>
+            </div>
+            <div className="cat">
+              <input type="radio" name="category" value="music" id="music" />
+              <label htmlFor="music">Music</label>
+            </div>
           </div>
         </div>
       </div>

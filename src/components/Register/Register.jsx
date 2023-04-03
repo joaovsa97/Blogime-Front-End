@@ -1,7 +1,14 @@
 import React from "react";
+import { useState } from "react";
 
 const Register = (props) => {
   const { isEditing, changeRegister } = props;
+
+  const [Inputs, setInputs] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
   return (
     <div
       className="auth"

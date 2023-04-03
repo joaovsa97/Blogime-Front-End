@@ -340,6 +340,16 @@ $gray: rgb(107, 107, 107);
             h2 {
               margin-bottom: 20px;
             }
+
+            .cat{
+              display: flex;
+              justify-content: start;
+              font-weight: bold;
+
+              input{
+                margin: 3px;
+              }
+            }
           }
         }
       }
