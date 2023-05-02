@@ -1,3 +1,11 @@
+# Blogime-Front-End
+
+## Project Description
+This project was developed for the purpose of studies in React.js and Node.js, using MySql as Database, Express for paging and routing, and SCSS for styling.
+
+## Back-end Project
+https://github.com/joaovsa97/Blogime-Back-End/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
