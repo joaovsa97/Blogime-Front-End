@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios"
 
+import { api } from "../../services/api.js"
+
 const Register = (props) => {
   const { isEditing, changeRegister } = props;
 
@@ -19,7 +21,7 @@ const Register = (props) => {
     e.preventDefault()
 
     try{
-      const res = await axios.post("http://localhost:8800/api/auth/register", Inputs)
+      const res = await api.post("/auth/register", Inputs)
       console.log(res)
     }catch(err){
       console.log(err)

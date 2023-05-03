@@ -41,13 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "options": {
-    "Access-Control-Allow-Origin": "http://localhost:8800/",
-    "allowedHosts": [
-      "localhost",
-      ".localhost"
-    ],
-    "proxy": "http://localhost:8800/"
   }
 }
