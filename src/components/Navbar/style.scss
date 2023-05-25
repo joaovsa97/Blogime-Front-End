@@ -31,6 +31,7 @@ $gray: rgb(83, 82, 82);
         text-decoration: none;
         transition: 0.2s;
         color: $white;
+        cursor: pointer;
 
         &:hover {
           color: $red;

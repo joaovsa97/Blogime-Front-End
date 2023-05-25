@@ -1,8 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import axios from "axios"
+import React, { useState } from "react";
 
-import { api } from "../../services/api.js"
+import { api } from "../../services/api.js";
 
 const Register = (props) => {
   const { isEditing, changeRegister } = props;
@@ -11,22 +9,37 @@ const Register = (props) => {
     username: "",
     email: "",
     password: "",
+    confpswrd: "",
   });
 
+  const [err, setErr] = useState(null);
+
   const handleChange = (e) => {
-    setInputs(prev => ({ ...prev , [e.target.name]: e.target.value}))
-  }
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    try{
-      const res = await api.post("/auth/register", Inputs)
-      console.log(res)
-    }catch(err){
-      console.log(err)
+    if (Inputs.password === Inputs.confpswrd) {
+      try {
+        await api.post("/auth/register", Inputs).then(() => 
+        changeRegister(),
+        setInputs({
+          username: "",
+          email: "",
+          password: "",
+          confpswrd: ""
+      }))
+      } catch (err) {
+        setErr(err.response.data);
+      }
+    } else {
+      setErr("Password Does Not Match");
     }
-  }
+
+  };
+
   return (
     <div
       className="auth"
@@ -35,18 +48,39 @@ const Register = (props) => {
       <h1>Register</h1>
       <div className="form">
         <label htmlFor="username">Username</label>
-        <input type="text" placeholder="username" name="username" onChange={handleChange}/>
+        <input
+          type="text"
+          placeholder="username"
+          name="username"
+          onChange={handleChange}
+          value={Inputs.username}
+        />
         <label htmlFor="email">E-mail</label>
-        <input type="text" name="email" placeholder="E-mail" onChange={handleChange}/>
+        <input
+          type="text"
+          name="email"
+          placeholder="E-mail"
+          onChange={handleChange}
+          value={Inputs.email}
+        />
         <label htmlFor="password">Password</label>
-        <input type="password" name="password" placeholder="Password" onChange={handleChange}/>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+          value={Inputs.password}
+        />
         <label htmlFor="confpswrd">Confirm Password</label>
         <input
           type="password"
           name="confpswrd"
           placeholder="Confirm Password"
+          onChange={handleChange}
+          value={Inputs.confpswrd}
         />
         <button onClick={handleSubmit}>Register</button>
+        {err && <p className="errMsg">{err}</p>}
         <span onClick={() => changeRegister()}>Login</span>
       </div>
     </div>

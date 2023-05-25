@@ -109,6 +109,12 @@ $gray: rgb(107, 107, 107);
             border-bottom: 1px solid $red;
           }
 
+          .errMsg{
+              color: red;
+              font-weight: bold;
+              font-size: 16px;
+          }
+
           button {
             border: none;
             border-radius: 4px;
