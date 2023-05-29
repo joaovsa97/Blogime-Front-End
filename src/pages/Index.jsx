@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 
 import "../style.scss";
 import { api } from "../services/api.js";
@@ -21,20 +21,6 @@ function Index() {
     };
     fetchData();
   }, [category]);
-  // const posts = [
-  //   {
-  //     id: 1,
-  //     title: "lorem 1",
-  //     img: "https://images.pexels.com/photos/9866764/pexels-photo-9866764.jpeg",
-  //     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos doloribus magnam sint in reprehenderit dolorum!",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "lorem 2",
-  //     img: "https://images.pexels.com/photos/12815070/pexels-photo-12815070.jpeg",
-  //     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id mollitia consequatur nihil eos quisquam. Architecto natus numquam aspernatur culpa aliquam quidem asperiores esse ducimus. Nisi suscipit quas veritatis amet error doloribus, quae, numquam ullam distinctio natus veniam sunt explicabo tenetur. Quasi maxime tempore dignissimos, iste minima voluptate mollitia est provident!",
-  //   },
-  // ];
 
   return (
     <div className="container">
@@ -49,7 +35,7 @@ function Index() {
                 <h1>{post.title}</h1>
               </Link>
               <p>{post.desc}</p>
-              <button>Read More</button>
+              <Link className="button" to={`/post/${post.id}`}>Read More</Link>
             </div>
           </div>
         ))}
