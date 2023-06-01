@@ -21,6 +21,11 @@ const Single = () => {
 
   const { currentUser } = useContext(AuthContext);
 
+  const formatText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html")
+    return doc.body.textContent
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,7 +40,7 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      const res = await api.delete(`/posts/${postId}`);
+      await api.delete(`/posts/${postId}`);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -46,16 +51,16 @@ const Single = () => {
     <div className="container">
       <div className="single">
         <div className="content">
-          <img src={post?.img} alt="" />
+          <img src={`../upload/${post.img}`} alt="" />
           <div className="user">
-            <img src={post.userImg} alt="" />
+            <img src={`../upload/${post.img}`} alt="" />
             <div className="info">
               <span>{post.username}</span>
-              <p>Posted {moment(post.date).fromNow()}</p>
+              <p>Posted {moment(post?.date).fromNow()}</p>
             </div>
-            {currentUser.username === post.username && (
+            {currentUser?.username === post.username && (
               <div className="edit">
-                <Link to={`/write?edit=2`}>
+                <Link to={`/write?edit=${postId}`} state={post}>
                   <img src={Edit} alt="" />
                 </Link>
                 <img onClick={handleDelete} src={Delete} alt="" />
@@ -63,10 +68,10 @@ const Single = () => {
             )}
           </div>
           <h1>{post.title}</h1>
-          {post.desc}
+          {formatText(post.desc)}
         </div>
         <div className="menu">
-          <Menu category={post.category}/>
+          <Menu category={post?.category}/>
         </div>
       </div>
     </div>

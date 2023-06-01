@@ -26,7 +26,7 @@ const Menu = (props) => {
       <h2>See also</h2>
       {posts.map((post) => (
         <div className="post" key={post.id}>
-          <img src={post.img} alt="" />
+          <img src={`../upload/${post.img}`}alt="" />
           <h3>{post.title}</h3>
           <button>Read More</button>
         </div>

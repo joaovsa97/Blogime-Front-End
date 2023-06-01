@@ -10,6 +10,11 @@ function Index() {
 
   const category = useLocation().search
 
+  const formatText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html")
+    return doc.body.textContent
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,13 +33,13 @@ function Index() {
         {posts.map((post) => (
           <div className="post" key={post.id}>
             <div className="img">
-              <img src={post.img} alt="" />
+              <img src={`./upload/${post.img}`} alt="" />
             </div>
             <div className="content">
               <Link className="links" to={`/post/${post.id}`}>
                 <h1>{post.title}</h1>
               </Link>
-              <p>{post.desc}</p>
+              <p>{formatText(post.desc)}</p>
               <Link className="button" to={`/post/${post.id}`}>Read More</Link>
             </div>
           </div>
